@@ -19,19 +19,7 @@ class _MainTabPageState extends ModularState<MainTabPage, MainTabPageStore> {
       body: RouterOutlet(),
       bottomNavigationBar: Observer(
         builder: (_) => BottomNavigationBar(
-          onTap: (id) {
-            if (id == 0) {
-              Modular.to
-                  .navigate(MainTabsModule.routeName + HomeModule.routeName);
-            } else if (id == 1) {
-              Modular.to.navigate(
-                  MainTabsModule.routeName + NotifiesModule.routeName);
-            } else if (id == 2) {
-              Modular.to.navigate(
-                  MainTabsModule.routeName + SettingsModule.routeName);
-            }
-            store.currentTabIdx = id;
-          },
+          onTap: (id) => store.navigateTo(id),
           currentIndex: store.currentTabIdx,
           items: const [
             BottomNavigationBarItem(

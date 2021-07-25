@@ -24,6 +24,20 @@ mixin _$MainTabPageStore on _MainTabPageStore, Store {
     });
   }
 
+  final _$_MainTabPageStoreActionController =
+      ActionController(name: '_MainTabPageStore');
+
+  @override
+  void navigateTo(int id, {String route = ''}) {
+    final _$actionInfo = _$_MainTabPageStoreActionController.startAction(
+        name: '_MainTabPageStore.navigateTo');
+    try {
+      return super.navigateTo(id, route: route);
+    } finally {
+      _$_MainTabPageStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     return '''
