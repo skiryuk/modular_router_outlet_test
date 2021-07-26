@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:modular_router_outlet/app/modules/main_tabs/main_tabs_module.dart';
-import 'package:modular_router_outlet/app/modules/main_tabs/modules/home/home_module.dart';
-import 'package:modular_router_outlet/app/modules/main_tabs/modules/notifies/notifies_module.dart';
-import 'package:modular_router_outlet/app/modules/main_tabs/modules/settings/settings_module.dart';
 import 'package:modular_router_outlet/app/modules/main_tabs/pages/main_tab_page/main_tab_page_store.dart';
+import 'package:modular_router_outlet/app/modules/main_tabs/pages/main_tab_page/tab_views/home_tab_view.dart';
+import 'package:modular_router_outlet/app/modules/main_tabs/pages/main_tab_page/tab_views/notifies_tab_view.dart';
+import 'package:modular_router_outlet/app/modules/main_tabs/pages/main_tab_page/tab_views/settings_tab_view.dart';
 
 class MainTabPage extends StatefulWidget {
   @override
@@ -16,7 +15,9 @@ class _MainTabPageState extends ModularState<MainTabPage, MainTabPageStore> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: RouterOutlet(),
+      body: IndexedStack(
+          index: store.currentTabIdx,
+          children: [HomeTabView(), NotifiesTabView(), SettingsTabView()]),
       bottomNavigationBar: Observer(
         builder: (_) => BottomNavigationBar(
           onTap: (id) => store.navigateTo(id),
