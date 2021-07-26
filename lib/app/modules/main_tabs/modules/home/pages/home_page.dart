@@ -31,6 +31,7 @@ class HomePage extends StatelessWidget {
               onPressed: () =>_mainTabStore.navigateTo(ETabs.NOTIFY, route: NotifiesDetails.routeName),
               child: const Text('Go to detail page in notifies'),
             ),
+            Expanded(child: RouterOutlet())
           ],
         ),
       ),

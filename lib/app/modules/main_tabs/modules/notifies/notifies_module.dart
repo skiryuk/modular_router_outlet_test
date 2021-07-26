@@ -10,7 +10,11 @@ class NotifiesModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute(Modular.initialRoute, child: (_, __) => NotifiesPage()),
-    ChildRoute(NotifiesDetails.routeName, child: (_, __) => NotifiesDetails()),
+    ChildRoute(Modular.initialRoute,
+        child: (_, __) => NotifiesPage(),
+        children: [
+          ChildRoute(NotifiesDetails.routeName,
+              child: (_, __) => NotifiesDetails()),
+        ]),
   ];
 }
