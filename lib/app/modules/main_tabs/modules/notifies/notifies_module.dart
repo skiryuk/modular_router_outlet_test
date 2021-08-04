@@ -9,12 +9,19 @@ class NotifiesModule extends Module {
   final List<Bind> binds = [];
 
   @override
+  // TODO: implement paths
+  List<String> get paths => ['notifies'];
+
+  @override
   final List<ModularRoute> routes = [
     ChildRoute(Modular.initialRoute,
         child: (_, __) => NotifiesPage(),
+        duration: const Duration(milliseconds: 0),
+   transition: TransitionType.noTransition,
         children: [
           ChildRoute(NotifiesDetails.routeName,
-              child: (_, __) => NotifiesDetails()),
+              child: (_, __) => NotifiesDetails(),
+              duration: const Duration(milliseconds: 0)),
         ]),
   ];
 }

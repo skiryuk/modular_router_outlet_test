@@ -19,9 +19,9 @@ class MainTabsModule extends Module {
     ChildRoute(Modular.initialRoute,
         child: (_, __) => MainTabPage(),
         children: [
-          ModuleRoute(HomeModule.routeName, module: HomeModule()),
-          ModuleRoute(NotifiesModule.routeName, module: NotifiesModule()),
-          ModuleRoute(SettingsModule.routeName, module: SettingsModule()),
+          ModuleRoute(HomeModule.routeName, module: HomeModule(), duration: const Duration(milliseconds: 0), transition: TransitionType.noTransition),
+          ModuleRoute(NotifiesModule.routeName, module: NotifiesModule(), duration: const Duration(milliseconds: 0), transition: TransitionType.noTransition),
+          ModuleRoute(SettingsModule.routeName, module: SettingsModule(), duration: const Duration(milliseconds: 0), transition: TransitionType.noTransition),
         ]),
   ];
 }
